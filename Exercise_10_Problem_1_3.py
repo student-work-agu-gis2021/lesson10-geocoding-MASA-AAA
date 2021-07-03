@@ -99,8 +99,7 @@ print(round(gpd.GeoSeries(geodata["buffer"]).area / 1000000))
 # - Replace the values in `geometry` column with the values of `buffer` column:
 
 # YOUR CODE HERE 8 to replace the values in geometry
-geodata['geometry'] = geodata['buffer']
-
+geodata['geometry'] = geodata['buffer'].
 #TEST CODE
 print(geodata.head())
 
@@ -112,7 +111,7 @@ print(geodata.head())
 
 # YOUR CODE HERE 9
 # Read population grid data for 2018 into a variable `pop`. 
-pop=gpd.read_file(r"data/500m_mesh_suikei_2018_shape_13/500m_mesh_2018_13.shp",encoding='cp932')
+pop=gpd.read_file(r"data/500m_mesh_suikei_2018_shape_13/500m_mesh_2018_13.shp")
 pop = pop[['geometry', 'PTN_2020']]
 pop.crs = CRS.from_epsg(4612).to_wkt()
 geodata = geodata.to_crs(pop.crs)
@@ -142,5 +141,6 @@ for key, group in grouped:
 # - What was difficult?
 
 # YOUR ANSWER HERE
+#I can't fix the garbled characters in the shapefile.
 
 # Well done!
